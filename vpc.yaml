@@ -183,20 +183,21 @@ Resources:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          SourceSecurityGroup: !Ref BastionSG
+          SourceSecurityGroupId: !Ref BastionSG
 
   AppInstance2BSG:
   # SG App 2B
     Type: 'AWS::EC2::SecurityGroup'
-    Properties:
-      GroupDescription: 'Allow ICMP Ping from App1'
+    Properties: 
+      GroupDescription: 'Allow ICMP Ping from App 1'
       VpcId: !Ref MyVPC
       SecurityGroupIngress:
-        - IpProtocol: icmp
+        - IpProtocol: icmp 
           FromPort: -1
           ToPort: -1
-          SourceSecurityGroup: !Ref AppInstance1ASG
+          SourceSecurityGroupId: !Ref AppInstance1ASG
 
+  
 
 
   
