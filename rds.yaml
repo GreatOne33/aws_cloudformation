@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Create RDS Instance'
+
+Resources:
+  MyDB:
+    Type: 'AWS::RDS::DBInstance'
+    Properties:
+      DBInstanceIdentifier: 'MyNewRDS'
+      MasterUsername: 'admin'
+      # Password set for trial, better security to add and reference key
+      MasterUserPassword: 'J3opardy45!!'
+      DBInstanceClass: 'db.t3.micro'
+      Engine: 'mysql'
+      EngineVersion: '8.0.35'
+      AllocatedStorage: '20' 
+      BackupRetentionPeriod: 7
+
